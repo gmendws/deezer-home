@@ -37,7 +37,7 @@ h1{
 
 
 
-top-menu-partners{
+.top-menu-partners{
     border: 1px solid gray;
     border-radius: 10px;
     flex-direction: column;
