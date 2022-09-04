@@ -2,21 +2,30 @@ body{
     font-family: Roboto,Open Sans,Arial,sans-serif;
     background-color: #121216;
     background-repeat: no-repeat;
-    background-image: linear-gradient(286deg,rgb(27 231 255/50%) 25.99%,#e47aff 64.62%,rgb(109 19 255/60%) 80.2%);
+    background: -webkit-gradient(linear, left top, right top, from(#8B2252), to(#2E8B57)) no-repeat;
+    background: -moz-linear-gradient(left, #8B2252, #2E8B57);
+    background-color: -ms-linear-gradient(left, #8B2252, #2E8B57);
     color: #fff;
     margin: 0;
     padding: 0;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
 }
 
 img{
-    width: 100px;
+    width: 30px;
     height: auto;
 }
 
 h1{
     text-align: center;
     margin-top: 100px;
+    font-family: Deezer,Arial,sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
 }
+
 
 .top-menu{
     width: 100%;
@@ -26,12 +35,21 @@ h1{
     text-align: center;
 }
 
-.top-menu-partners{
+
+
+top-menu-partners{
     border: 1px solid gray;
     border-radius: 10px;
     flex-direction: column;
     padding: 20px 30px;
     color: white;
+}
+
+.top-menu-partners-logo{
+    border: 0;
+    flex-direction: column;
+    width: 10px;
+    height: 10px;    
 }
 
 .top-menu-logo{
@@ -42,6 +60,11 @@ h1{
     position: absolute;
     right: 0;
     text-align: center;
+}
+
+.top-menu-logo img{
+    width: 200px;
+    height: auto;
 }
 
 .top-menu-login{
@@ -73,21 +96,23 @@ h1{
 }
 
 #button-login{
+    font-family: Roboto,Open Sans,Arial,sans-serif;
+    font-weight: bold;
     background-color: transparent;
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
-    text-decoration: none;
     font-size: 12px;
     border-color: white;
 }
 
 #button-register{
+    font-family: Roboto,Open Sans,Arial,sans-serif;
+    font-weight: bold;
     background-color: black;
     color: white;
     padding: 12px 50px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     border-radius: 20px;
     font-size: 14px;
