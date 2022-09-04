@@ -2,7 +2,6 @@ body{
     font-family: Roboto,Open Sans,Arial,sans-serif;
     background-color: #121216;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
     background-image: linear-gradient(286deg,rgb(27 231 255/50%) 25.99%,#e47aff 64.62%,rgb(109 19 255/60%) 80.2%);
     color: #fff;
     margin: 0;
@@ -57,10 +56,10 @@ h1{
 .center-menu{
     margin-left: auto;
     margin-right: auto;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 260px;
     background: linear-gradient(57.8deg,#6b42b4 9.75%,#943aab 95.44%);; 
-    padding: 24px 80px 16px;
+    padding: 10px 100px 10px;
     border-radius: 20px;
 }
 
@@ -86,7 +85,7 @@ h1{
 #button-register{
     background-color: black;
     color: white;
-    padding: 15px 32px;
+    padding: 12px 50px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
