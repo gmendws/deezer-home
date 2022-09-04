@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background-image: linear-gradient(286deg,rgb(27 231 255/50%) 25.99%,#e47aff 64.62%,rgb(109 19 255/60%) 80.2%);
     color: white;
 }
 
@@ -52,7 +52,7 @@ h1{
     left: 250px;
     width: 300px;
     height: 300px;
-    background-color: purple; 
+    background: linear-gradient(57.8deg,#6b42b4 9.75%,#943aab 95.44%);; 
     padding: 24px 80px 16px;
     border-radius: 20px;
 }
@@ -67,7 +67,7 @@ h1{
 }
 
 #button-login{
-    background-color: black;
+    background-color: transparent;
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
