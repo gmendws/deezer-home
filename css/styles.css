@@ -2,9 +2,9 @@ body{
     font-family: Roboto,Open Sans,Arial,sans-serif;
     background-color: #121216;
     background-repeat: no-repeat;
-    background: -webkit-gradient(linear, left top, right top, from(#8B2252), to(#2E8B57)) no-repeat;
-    background: -moz-linear-gradient(left, #8B2252, #2E8B57);
-    background-color: -ms-linear-gradient(left, #8B2252, #2E8B57);
+    background: -webkit-gradient(linear, left top, right top, from(#3f2a33), to(#5e0e3f)) no-repeat;
+    background: -moz-linear-gradient(left, #3f2a33, #5e0e3f);
+    background-color: -ms-linear-gradient(left, #3f2a33, #5e0e3f);
     color: #fff;
     margin: 0;
     padding: 0;
@@ -36,8 +36,8 @@ h1{
 }
 
 
-
 .top-menu-partners{
+    margin-top: 10px;
     border: 1px solid gray;
     border-radius: 10px;
     flex-direction: column;
@@ -93,6 +93,21 @@ h1{
 .center-menu-content h5{
     text-decoration: underline;
     color: gray;
+}
+
+.new-center-menu{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 350px;
+    background: linear-gradient(57.8deg,#c96819 9.75%,#e6b04e 95.44%);
+    padding: 10px 100px 50px;
+    border-radius: 30px;
+    margin-top: 40px;
+}
+
+.new-center-menu-content{
+    text-align: center;
 }
 
 #button-login{
