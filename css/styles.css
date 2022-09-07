@@ -14,7 +14,7 @@ body{
 }
 
 img{
-    width: 30px;
+    width: 35px;
     height: auto;
 }
 
@@ -37,19 +37,18 @@ h1{
 
 
 .top-menu-partners{
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-left: 50px;
     border: 1px solid gray;
     border-radius: 10px;
-    flex-direction: column;
-    padding: 20px 30px;
+    padding: 10px 10px;
     color: white;
+    width: 300px;
+    position: absolute;
 }
 
-.top-menu-partners-logo{
-    border: 0;
-    flex-direction: column;
-    width: 10px;
-    height: 10px;    
+.top-menu-partners p{
+    font-size: 14px;
 }
 
 .top-menu-logo{
@@ -59,11 +58,11 @@ h1{
     margin-right: auto;
     position: absolute;
     right: 0;
-    text-align: center;
 }
 
 .top-menu-logo img{
-    width: 200px;
+    margin-top: 60px;
+    width: 250px;
     height: auto;
 }
 
@@ -118,6 +117,7 @@ h1{
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 12px;
+    margin-right: 30px;
     border-color: white;
 }
 
@@ -133,3 +133,25 @@ h1{
     font-size: 14px;
 }
 
+#logo-tim{
+    width: 60px;
+}
+
+#logo-globo{
+    width: 60px;
+}
+
+#logo-mercado{
+    width: 35px;
+    margin: 0px 10px 0px 0px;
+}
+
+#logo-itau{
+    width: 35px;
+    margin: 0px 10px 0px 0px;
+}
+
+#logo-live{
+    width: 35px;
+    margin: 0px 10px 0px 0px;
+}
