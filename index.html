@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deezer | Ouvir música online | Aplicativo para escutar música</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body onload='logado()'>
     <div class="my-page">
         <div class="top-menu">
             <div class="top-menu-partners"> 
@@ -21,8 +23,15 @@
             <div class="top-menu-logo">
                 <img src="images/logo-deezer.png" alt="deezer-logo">
             </div>
-            <div class="top-menu-login">
-                <button id="button-login">Login</button>
+            <div id="loggedout" class="top-menu-login">
+                <p id="validacao"></p> 
+                <button onclick="login()" class="botao">Entrar</button>  
+                <input id="password" type="password" placeholder="*********">
+                <input id="email" placeholder="E-mail">       
+            </div>
+            <div id="loggedin" class="top-menu-login">
+                <p>TA LOGADO CHEFIA</p>
+                <p id="validacao"></p> 
             </div>
         </div>
         <h1>O Poder da música</h1>
