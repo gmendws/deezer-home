@@ -7,7 +7,7 @@
     <title>Deezer | Ouvir música online | Aplicativo para escutar música</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
 </head>
 <body onload='logado()'>
     <div class="my-page">
@@ -25,16 +25,22 @@
             </div>
             <div id="loggedout" class="top-menu-login">
                 <p id="validacao"></p> 
-                <button onclick="login()" class="botao">Entrar</button>  
+                <button onclick="RequestLogin()" class="botao">Entrar</button>  
                 <input id="password" type="password" placeholder="*********">
                 <input id="email" placeholder="E-mail">       
             </div>
             <div id="loggedin" class="top-menu-login">
-                <p>TA LOGADO CHEFIA</p>
+                <button onclick="logout()" class="button-login">Logout</button> 
                 <p id="validacao"></p> 
             </div>
         </div>
         <h1>O Poder da música</h1>
+        <div class="search-music">
+            <label>Pesquise sua musica</label>
+            <input id="search-music-value" type="text">
+            <button onclick="RequestSearch()">Buscar</button>
+            <div class="music-box"></div>
+        </div>
         <div class="center-menu">
             <div class="center-menu-content">
                 <h2>deezer Free</h2>

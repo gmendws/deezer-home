@@ -136,7 +136,7 @@ h1{
     text-align: center;
 }
 
-#button-login{
+.button-login{
     font-family: Roboto,Open Sans,Arial,sans-serif;
     font-weight: bold;
     background-color: transparent;
@@ -147,6 +147,12 @@ h1{
     margin-right: 30px;
     border-color: white;
     box-shadow: 5px 5px transparent;
+}
+
+.search-music{
+    text-align: center;
+    padding: 30px 16px;
+    flex-direction: column;
 }
 
 #button-register{
