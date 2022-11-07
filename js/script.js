@@ -1,42 +1,19 @@
-  function logado() {
-    if(getToken()){
-      document.querySelector('#loggedout').style.visibility = 'hidden';  
-      document.querySelector('#loggedin').style.visibility = 'visible';    
-    } 
-    else {
-      document.querySelector('#loggedin').style.visibility = 'hidden'; 
-      document.querySelector('#loggedout').style.visibility = 'visible'; 
-    }
-    
-  }
-
-  function RequestLogin(){
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-
-    if (document.getElementById('email').value.length < 3) {
-      document.getElementById('validacao').innerHTML = 'Email invalido';
-    }
-    else if (document.getElementById('password').value.length < 3){
-      document.getElementById('validacao').innerHTML = 'Senha invalida';
-    }
-    else{
-      login(email, password, function(response){
-        if(response.error){
-          document.getElementById('validacao').innerHTML = 'Login incorreto';query
-        }
-        else{
-          localStorage.setItem("loginToken", response.token);
-          logado();
-        }
-      })
-    }
-  }
-
   function RequestSearch(){
     var music = document.getElementById('search-music-value').value;
 
+    if (document.getElementById('search-music-value').value.length == 0) {
+      document.getElementById('validacaoMusic').innerHTML = 'Insira uma musica!';
+    } 
+    else if (document.getElementById('search-music-value').value.length < 3) {
+      document.getElementById('validacaoMusic').innerHTML = 'Preencha corretamente a musica!';
+    }
+
+
+
     searchMusic(music, 10, function(res){
+      if (res.length == 0){
+        document.getElementById('validacaoMusic').innerHTML = 'Nenhuma música encontrada!';  
+      }
       Results(res);
     });
   }
@@ -52,7 +29,7 @@
       if(request.readyState !== 4){
         return;
       }
-  
+
       let content = [];
   
       if(request.status === 200){
@@ -107,6 +84,29 @@
   
     searchBox.appendChild(list);
   }
+
+  function RequestLogin(){
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+    if (document.getElementById('email').value.length < 3) {
+      document.getElementById('validacao').innerHTML = 'Email invalido';
+    }
+    else if (document.getElementById('password').value.length < 3){
+      document.getElementById('validacao').innerHTML = 'Senha invalida';
+    }
+    else{
+      login(email, password, function(response){
+        if(response.error){
+          document.getElementById('validacao').innerHTML = 'Login incorreto';
+        }
+        else{
+          localStorage.setItem("loginToken", response.token);
+          logado();
+        }
+      })
+    }
+  }
   
   function login(email, password, callback) {
     let request = new XMLHttpRequest();
@@ -136,3 +136,16 @@
     location.reload();
   }
 
+  function logado() {
+    if(getToken()){
+      document.querySelector('#loggedout').style.visibility = 'hidden';  
+      document.querySelector('#loggedin').style.visibility = 'visible';  
+      document.querySelector('#isLogado').style.visibility = 'visible';    
+    } 
+    else {
+      document.querySelector('#loggedin').style.visibility = 'hidden'; 
+      document.querySelector('#loggedout').style.visibility = 'visible'; 
+      document.querySelector('#isLogado').style.visibility = 'hidden';  
+    }
+    
+  }
