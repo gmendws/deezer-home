@@ -85,50 +85,37 @@
     searchBox.appendChild(list);
   }
 
-  function RequestLogin(){
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-
+  function login() {
+    var valida = false;
     if (document.getElementById('email').value.length < 3) {
       document.getElementById('validacao').innerHTML = 'Email invalido';
-    }
-    else if (document.getElementById('password').value.length < 3){
+    }else if (document.getElementById('password').value.length < 3){
       document.getElementById('validacao').innerHTML = 'Senha invalida';
+    }else{
+      valida = true;
     }
-    else{
-      login(email, password, function(response){
-        if(response.error){
-          document.getElementById('validacao').innerHTML = 'Login incorreto';
-        }
-        else{
-          localStorage.setItem("loginToken", response.token);
-          logado();
-        }
-      })
+    if (valida === true){
+      const params = {
+        username: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      };
+  
+      axios.post('/login', params)
+        .then(res => {
+          const { token } = res.data;
+          localStorage.setItem('token', token);
+          document.querySelector('#loggedout').style.visibility = 'hidden';
+          document.querySelector('#loggedin').style.visibility = 'visible';
+  
+        })
+        .catch(error => {
+          document.getElementById('validacao').innerHTML = 'Usuário não encontrado';
+        });
     }
-  }
-  
-  function login(email, password, callback) {
-    let request = new XMLHttpRequest();
-    request.open("POST", "https://reqres.in/api/login", true);
-    request.setRequestHeader("Content-Type", "application/json; charset=utf-8")
-    request.onreadystatechange = function () {
-  
-      if(request.readyState !== 4){
-        return;
-      }
-  
-      callback(JSON.parse(request.responseText));  
-    };
-  
-    request.send(JSON.stringify({
-      email: email,
-      password: password
-    }));
   }
   
   function getToken() {
-    return localStorage.getItem('loginToken');
+    return localStorage.getItem('token');
   }
   
   function logout() {
