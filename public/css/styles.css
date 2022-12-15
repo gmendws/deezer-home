@@ -28,9 +28,6 @@ h1{
         width: 100%;
     }
 
-    h1{
-    }
-
     /* Classes */
     .top-menu{
         width: 100%;
@@ -96,10 +93,22 @@ h1{
 .top-menu-login{
     align-self: flex-end;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
     justify-content: flex-end;
     position: absolute;
     right: 20px;
+}
+
+#loggedout{
+    top: 15px;
+}
+
+#loggedin{
+    top: 15px;
+}
+
+#register{
+    top: 15px;   
 }
 
 .center-menu{

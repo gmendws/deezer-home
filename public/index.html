@@ -24,15 +24,23 @@
             <div class="top-menu-logo">
                 <img src="images/logo-deezer.png" alt="deezer-logo">
             </div>
-            <div id="loggedout" class="top-menu-login">
-                <p id="validacao"></p> 
-                <button onclick="login()" class="botao">Entrar</button>  
+            <div id="loggedout" class="top-menu-login">  
+                <input id="email" placeholder="E-mail">   
                 <input id="password" type="password" placeholder="*********">
-                <input id="email" placeholder="E-mail">       
+                <button onclick="RequestLogin()" class="botao">Entrar</button>      
+                <p id="validacao"></p>   
             </div>
             <div id="loggedin" class="top-menu-login">
                 <button onclick="logout()" class="button-login">Logout</button> 
                 <p id="validacao"></p> 
+            </div>
+            <div id="register" class="top-menu-login">   
+                <input id="name-register" placeholder="Nome">            
+                <input id="email-register" placeholder="E-mail"> 
+                <input id="password-register" type="password" placeholder="*********">  
+                <input id="confirm-password-register" type="password" placeholder="Confirme a Senha">   
+                <button onclick="RequestRegister()" class="botao">Inscrever</button>  
+                <p id="validacao-register"></p>   
             </div>
         </div>
         <h1>O Poder da música</h1>

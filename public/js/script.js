@@ -85,37 +85,106 @@
     searchBox.appendChild(list);
   }
 
-  function login() {
-    var valida = false;
-    if (document.getElementById('email').value.length < 3) {
-      document.getElementById('validacao').innerHTML = 'Email invalido';
-    }else if (document.getElementById('password').value.length < 3){
-      document.getElementById('validacao').innerHTML = 'Senha invalida';
-    }else{
-      valida = true;
-    }
-    if (valida === true){
-      const params = {
-        username: document.getElementById('email').value,
-        password: document.getElementById('password').value
-      };
+  function RequestLogin(){
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+
+    login(email, password, function(response){
+      if(response.msg != 'Autenticação realizada com sucesso'){
+        document.getElementById('validacao').innerHTML = response.msg;
+      }
+      else{
+        localStorage.setItem("loginToken", response.token);
+        logado();
+      }
+    })
+  }
+
+  function login(email, password, callback) {
+    let url = 'http://localhost:3000/auth/login'
+
+    let request = new XMLHttpRequest();
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-Type", "application/json; charset=utf-8")
+    request.onreadystatechange = function () {
   
-      axios.post('/login', params)
-        .then(res => {
-          const { token } = res.data;
-          localStorage.setItem('token', token);
-          document.querySelector('#loggedout').style.visibility = 'hidden';
-          document.querySelector('#loggedin').style.visibility = 'visible';
+      if(request.readyState !== 4){
+        return;
+      }
   
-        })
-        .catch(error => {
-          document.getElementById('validacao').innerHTML = 'Usuário não encontrado';
-        });
-    }
+      callback(JSON.parse(request.responseText));  
+    };
+  
+    request.send(JSON.stringify({
+      email: email,
+      password: password
+    }));
+  }
+
+  function RequestLogin(){
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+
+
+    login(email, password, function(response){
+      if(response.msg != 'Autenticação realizada com sucesso'){
+        document.getElementById('validacao').innerHTML = response.msg;
+      }
+      else{
+        localStorage.setItem("loginToken", response.token);
+        logado();
+      }
+    })
+  }
+
+  function RequestRegister(){
+    var name = document.getElementById('name-register').value;
+    var email = document.getElementById('email-register').value;
+    var password = document.getElementById('password-register').value;
+    var confirmpassword = document.getElementById('confirm-password-register').value;
+
+    register(name, email, password, confirmpassword, function(response){
+      if(response.msg != 'Usuario criado com sucesso!'){
+        document.getElementById('validacao-register').innerHTML = response.msg;
+      }
+      else{
+        document.getElementById('validacao-register').innerHTML = response.msg;
+        AfterRegister();
+      }
+    })
+  }
+
+  function register(name, email, password, confirmpassword, callback) {
+    let url = 'http://localhost:3000/auth/register'
+
+    let request = new XMLHttpRequest();
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-Type", "application/json; charset=utf-8")
+    request.onreadystatechange = function () {
+  
+      if(request.readyState !== 4){
+        return;
+      }
+  
+      callback(JSON.parse(request.responseText));  
+    };
+  
+    request.send(JSON.stringify({
+      name: name,
+      email: email,
+      password: password,
+      confirmpassword: confirmpassword
+    }));
+  }
+
+  function AfterRegister() {
+    document.querySelector('#loggedout').style.visibility = 'visible';  
+    document.querySelector('#register').style.visibility = 'hidden';     
   }
   
   function getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem('loginToken');
   }
   
   function logout() {
@@ -125,14 +194,19 @@
 
   function logado() {
     if(getToken()){
-      document.querySelector('#loggedout').style.visibility = 'hidden';  
+      document.querySelector('#register').style.visibility = 'hidden'; 
+      document.querySelector('#loggedout').style.visibility = 'hidden';
       document.querySelector('#loggedin').style.visibility = 'visible';  
-      document.querySelector('#isLogado').style.visibility = 'visible';    
+      document.querySelector('#isLogado').style.visibility = 'visible'; 
     } 
     else {
+      document.querySelector('#register').style.visibility = 'hidden';
       document.querySelector('#loggedin').style.visibility = 'hidden'; 
       document.querySelector('#loggedout').style.visibility = 'visible'; 
       document.querySelector('#isLogado').style.visibility = 'hidden';  
     }
     
   }
+  
+
+  
