@@ -150,7 +150,6 @@
       }
       else{
         document.getElementById('validacao-register').innerHTML = response.msg;
-        AfterRegister();
       }
     })
   }
@@ -181,6 +180,11 @@
   function AfterRegister() {
     document.querySelector('#loggedout').style.visibility = 'visible';  
     document.querySelector('#register').style.visibility = 'hidden';     
+  }
+
+  function alterRegister() {
+    document.querySelector('#loggedout').style.visibility = 'hidden';  
+    document.querySelector('#register').style.visibility = 'visible';    
   }
   
   function getToken() {
